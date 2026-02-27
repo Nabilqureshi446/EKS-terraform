@@ -74,7 +74,7 @@ resource "aws_iam_policy_attachment" "node_policy_attachment" {
   resource "aws_iam_policy_attachment" "cluster_node_policy_attachment" {
     name       = "cluster-node-policy-attachment"
     policy_arn = "arn:aws:iam::aws:policy/AmazonEKSWorkerNodePolicy"
-    roles      = [aws_iam_role.node_role.name]
+    roles      = [aws_iam_role.cluster_role.name]
   
 }
 resource "aws_iam_policy_attachment" "node_policy_attachment_ec2" {
