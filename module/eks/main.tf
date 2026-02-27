@@ -87,7 +87,7 @@ resource "aws_iam_policy_attachment" "node_policy_attachment_ec2" {
 resource "aws_eks_node_group" "my_node_group" {
   cluster_name    = aws_eks_cluster.my_cluster.name
   node_group_name = "my_node_group"
-  node_role_arn   = aws_iam_role.node_role.arn
+  node_role_arn   = aws_eks_cluster.my_cluster.role_arn
   subnet_ids      = data.aws_subnets.my_subnets.ids
   instance_types = ["t3.small"]
 
