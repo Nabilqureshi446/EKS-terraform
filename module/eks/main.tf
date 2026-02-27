@@ -34,7 +34,7 @@ resource "aws_iam_role" "cluster_role" {
  data "aws_subnets" "my_subnets" {
     filter {
       name = "vpc-id"
-      values = [data.aws_vpc.default_vpa]
+      values = [data.aws_vpc.default_vpa.id]
     }
  }
 
@@ -67,7 +67,7 @@ timeouts {
 resource "aws_iam_policy_attachment" "node_policy_attachment" {
     name       = "node-policy-attachment"
     policy_arn = "arn:aws:iam::aws:policy/AmazonEKS_CNI_Policy"
-    roles      = [aws_iam_role.cluster_role]
+    roles      = [aws_iam_role.cluster_role.name]
   
 }
 
