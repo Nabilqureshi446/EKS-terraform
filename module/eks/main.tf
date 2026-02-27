@@ -40,7 +40,7 @@ resource "aws_iam_role" "cluster_role" {
 
 
 resource "aws_eks_cluster" "my_cluster" {
-  name = "my-cluster"
+  name =  "my_cluster"
 
   access_config {
     authentication_mode = "API"
