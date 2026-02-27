@@ -46,7 +46,7 @@ resource "aws_eks_cluster" "my_cluster" {
     authentication_mode = "API"
   }
 
-  role_arn = aws_iam_role.cluster.arn
+  role_arn = aws_iam_role.cluster_role.arn
   version  = "1.31"
 
   vpc_config {
@@ -67,7 +67,7 @@ timeouts {
 resource "aws_iam_policy_attachment" "node_policy_attachment" {
     name       = "node-policy-attachment"
     policy_arn = "arn:aws:iam::aws:policy/AmazonEKS_CNI_Policy"
-    roles      = [aws_iam_role.node_role.name]
+    roles      = [aws_iam_role.cluster_role]
   
 }
 
@@ -80,7 +80,7 @@ resource "aws_iam_policy_attachment" "node_policy_attachment" {
 resource "aws_iam_policy_attachment" "node_policy_attachment_ec2" {
     name       = "node-policy-attachment1"
     policy_arn = "arn:aws:iam::aws:policy/AmazonEC2ContainerRegistryFullAccess"
-    roles      = [aws_iam_role.node_role.name]
+    roles      = [aws_iam_role.ec2_role.name]
   
 }
 
