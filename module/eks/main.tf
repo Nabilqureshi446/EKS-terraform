@@ -59,7 +59,7 @@ depends_on = [
     aws_iam_policy_attachment.cluster_policy_attachment
     ]
 timeouts {
-    create = "20"
+    create = "20m"
   
 }
 }
