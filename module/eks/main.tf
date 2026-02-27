@@ -44,7 +44,7 @@ resource "aws_eks_cluster" "my_cluster" {
 
  
 
-  role_arn = aws_iam_role.cluster_role.arn
+  role_arn = aws.iam_role.my_new_role.arn
   version  = "1.31"
 
   vpc_config {
@@ -72,7 +72,7 @@ resource "aws_iam_policy_attachment" "node_policy_attachment" {
   resource "aws_iam_policy_attachment" "cluster_node_policy_attachment" {
     name       = "cluster-node-policy-attachment"
     policy_arn = "arn:aws:iam::aws:policy/AmazonEKSWorkerNodePolicy"
-    roles      = [aws_iam_role.cluster_role.name]
+    roles      = [aws_iam_role.my_new_role.name]
   
 }
 resource "aws_iam_policy_attachment" "node_policy_attachment_ec2" {
