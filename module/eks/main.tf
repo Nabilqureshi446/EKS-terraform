@@ -42,9 +42,7 @@ resource "aws_iam_role" "cluster_role" {
 resource "aws_eks_cluster" "my_cluster" {
   name =  "my_cluster"
 
-  access_config {
-    authentication_mode = "API"
-  }
+ 
 
   role_arn = aws_iam_role.cluster_role.arn
   version  = "1.31"
