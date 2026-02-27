@@ -22,7 +22,7 @@ resource "aws_iam_role" "my_new_role" {
     resource "aws_iam_policy_attachment" "cluster_policy_attachment" {
         name       = "cluster-policy-attachment"
         policy_arn = "arn:aws:iam::aws:policy/AmazonEKSClusterPolicy"
-        roles      = [aws_iam_role.cluster_role.name]
+        roles      = [aws_iam_role.my_new_role]
       
     }
  
@@ -65,7 +65,7 @@ timeouts {
 resource "aws_iam_policy_attachment" "node_policy_attachment" {
     name       = "node-policy-attachment"
     policy_arn = "arn:aws:iam::aws:policy/AmazonEKS_CNI_Policy"
-    roles      = [aws_iam_role.cluster_role.name]
+    roles      = [aws_eks_cluster.my_cluster]
   
 }
 
