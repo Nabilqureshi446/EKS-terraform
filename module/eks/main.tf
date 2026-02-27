@@ -80,7 +80,7 @@ resource "aws_iam_policy_attachment" "node_policy_attachment" {
 resource "aws_iam_policy_attachment" "node_policy_attachment_ec2" {
     name       = "node-policy-attachment1"
     policy_arn = "arn:aws:iam::aws:policy/AmazonEC2ContainerRegistryFullAccess"
-    roles      = [aws_iam_role.ec2_role.name]
+    roles      = [aws_eks_cluster.my_cluster.name]
   
 }
 
