@@ -9,5 +9,5 @@ variable "min_size" {
   default     = 1
 }
 variable "env" {
-  default = dev
+  default = "dev"
 }
