@@ -1,4 +1,4 @@
-resource "aws_iam_role" "cluster_role" {
+resource "aws_iam_role" "my_new_role" {
   name = "cluster-role"
 
     assume_role_policy = jsonencode({
