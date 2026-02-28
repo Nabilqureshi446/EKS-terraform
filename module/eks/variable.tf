@@ -1,13 +1,5 @@
-variable  "desired_size" {
-  default     = 2
-}
-variable "max_size" {
-  default     = 2
-  
-}
-variable "min_size" {
-  default     = 1
-}
-variable "env" {
-  default = "dev"
-}
+variable env {}
+variable desired_size {}
+variable max_size {}
+variable min_size {}
+variable project {}
