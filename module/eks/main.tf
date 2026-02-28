@@ -22,7 +22,7 @@ resource "aws_iam_role" "my_new_role" {
     resource "aws_iam_policy_attachment" "cluster_policy_attachment" {
         name       = "cluster_policy_attachment"
         policy_arn = "arn:aws:iam::aws:policy/AmazonEKSClusterPolicy"
-        roles      = [aws_iam_role.cluster_role.name]
+        roles      = [aws_iam_role.my_new_role.name]
       
     }
  
