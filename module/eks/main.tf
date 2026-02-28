@@ -87,14 +87,14 @@ resource "aws_iam_role" "node_role" {
 resource "aws_iam_policy_attachment" "node_policy_attachment" {
     name       = "node-policy-attachment"
     policy_arn = "arn:aws:iam::aws:policy/AmazonEKS_CNI_Policy"
-    roles      = [aws_eks_cluster.my_cluster]
+    roles      = [aws_iam_role.node_role.name]
   
 }
 
   resource "aws_iam_policy_attachment" "cluster_node_policy_attachment" {
     name       = "cluster-node-policy-attachment"
     policy_arn = "arn:aws:iam::aws:policy/AmazonEKSWorkerNodePolicy"
-    roles      = [aws_iam_role.my_new_role.name]
+    roles      = [aws_iam_role.node_role.name]
   
 }
 resource "aws_iam_policy_attachment" "node_policy_attachment1" {
