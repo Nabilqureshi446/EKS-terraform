@@ -1,5 +1,20 @@
-variable env {}
-variable desired_size {}
-variable max_size {}
-variable min_size {}
-variable project {}
+variable "project_name" {
+    default     = "cbz"
+  
+}
+variable "env" {
+    default     = "dev"
+  
+}
+variable "desired_size" {
+    default     = 2
+  
+}
+variable "max_size" {
+    default     = 3
+  
+}
+variable "min_size" {
+    default     = 1
+  
+}
